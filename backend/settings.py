@@ -55,10 +55,10 @@ INSTALLED_APPS = [
     'database',
     'table',
     'tableData',
-     'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.github',
+    #  'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.github',
     'drf_yasg'
 ]
 
@@ -70,8 +70,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'corsheaders.middleware.CorsMiddleware',  # Add this line
-           'allauth.account.middleware.AccountMiddleware',  # Add this line
+    'corsheaders.middleware.CorsMiddleware',  # Add this line
+    # 'allauth.account.middleware.AccountMiddleware',  # Add this line
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -156,13 +156,13 @@ REST_FRAMEWORK = {
     ]
 }
 
-SOCIALACCOUNT_PROVIDERS = {
-    'github': {
-        'SCOPE': ['repo', 'user', 'notifications'],
-        'AUTH_PARAMS': {},
-        'OAUTH_PKCE_ENABLED': True,
-    }
-}
+# SOCIALACCOUNT_PROVIDERS = {
+#     'github': {
+#         'SCOPE': ['repo', 'user', 'notifications'],
+#         'AUTH_PARAMS': {},
+#         'OAUTH_PKCE_ENABLED': True,
+#     }
+# }
 
 
 CORS_ALLOWED_ORIGINS = [
@@ -170,20 +170,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://*.vercel.app",  # Allow all Vercel subdomains
 ]
 
-SITE_ID = 1  # Django Allauth requires this, even for a single site setup.
-
-
 AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',  # Default backend
-    'allauth.account.auth_backends.AuthenticationBackend',  # Allauth backend
+    'django.contrib.auth.backends.ModelBackend',  # Only leave the default backend
+    # 'allauth.account.auth_backends.AuthenticationBackend',  # Remove this line
 )
-
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # Email verification setting (optional)
-ACCOUNT_AUTHENTICATED_REDIRECT_URL = '/'  # Redirect after login
-ACCOUNT_SIGNUP_REDIRECT_URL = '/'  # Redirect after successful signup
-LOGIN_REDIRECT_URL = '/'  # Default redirect after login/logout
-
-# Optional: Configure Allauth's email confirmation
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-

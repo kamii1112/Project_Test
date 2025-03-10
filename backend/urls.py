@@ -23,5 +23,5 @@ urlpatterns = [
     path('database/', include("database.urls")),
     path('table/',include("table.urls")),
     path('table/', include("tableData.urls")),
-    path('auth/', include('allauth.urls')),  # Include Allauth authentication URLs
+   #  path('auth/', include('allauth.urls')),  # Include Allauth authentication URLs
 ]
