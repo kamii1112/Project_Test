@@ -162,7 +162,7 @@ SOCIALACCOUNT_PROVIDERS = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React frontend (development)
-    "https://yourfrontenddomain.com",  # Add your production frontend URL here
+   "https://project-test-sooty.vercel.app/"
 ]
 
 
