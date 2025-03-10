@@ -162,8 +162,9 @@ SOCIALACCOUNT_PROVIDERS = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React frontend (development)
-  ".vercel.app"
+    "https://*.vercel.app",  # Allow all Vercel subdomains
 ]
+
 
 
 AUTHENTICATION_BACKENDS = (
