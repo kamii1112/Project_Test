@@ -170,8 +170,20 @@ CORS_ALLOWED_ORIGINS = [
     "https://*.vercel.app",  # Allow all Vercel subdomains
 ]
 
+SITE_ID = 1  # Django Allauth requires this, even for a single site setup.
 
 
 AUTHENTICATION_BACKENDS = (
-    'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',  # Default backend
+    'allauth.account.auth_backends.AuthenticationBackend',  # Allauth backend
 )
+
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # Email verification setting (optional)
+ACCOUNT_AUTHENTICATED_REDIRECT_URL = '/'  # Redirect after login
+ACCOUNT_SIGNUP_REDIRECT_URL = '/'  # Redirect after successful signup
+LOGIN_REDIRECT_URL = '/'  # Default redirect after login/logout
+
+# Optional: Configure Allauth's email confirmation
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+
